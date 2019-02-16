@@ -1,9 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('Prepare') {
       steps {
         echo 'Starting automated build'
+      }
+    }
+    stage('Setup') {
+      steps {
+        git(url: 'git@github.com:msoni11/indepth-migration', branch: 'development', poll: true, credentialsId: 'c0200426-4b9b-4b7a-ac68-ccdba8ec0923')
       }
     }
   }
